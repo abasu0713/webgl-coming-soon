@@ -51,7 +51,9 @@
 	let renderer, scene, camera, stats;
 	let line, uniforms;
 	let animationPaused = false;
-	let zoomSpeed = 3;
+	let zoomSpeed = 2;
+	let initialCameraPositionZ = 400;
+
 
 	const loader = new FontLoader();
 	loader.load('fonts/gentilis_bold.typeface.json', function (font) {
@@ -61,7 +63,7 @@
 
 	function init(font) {
 		camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 10000);
-		camera.position.z = 400;
+		camera.position.z = initialCameraPositionZ;
 
 		scene = new THREE.Scene();
 		scene.background = new THREE.Color(0x050505);
@@ -83,8 +85,8 @@
 
 		const geometry = new TextGeometry('Coming soon!', {
 			font: font,
-			size: 30,
-			height: 15,
+			size: 25,
+			height: 12,
 			curveSegments: 10,
 			bevelThickness: 5,
 			bevelSize: 1.5,
