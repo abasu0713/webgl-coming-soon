@@ -19,6 +19,7 @@
 
 <body>
 <div id="container"></div>
+<!--<button class="notify-button" onclick="notifyMe()">Notify Me</button>-->
 <script type="x-shader/x-vertex" id="vertexshader">
 	uniform float amplitude;
 	attribute vec3 displacement;
@@ -46,9 +47,8 @@
 	import * as THREE from 'three';
 	import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 	import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
-	import Stats from 'three/addons/libs/stats.module.js';
 
-	let renderer, scene, camera, stats;
+	let renderer, scene, camera;
 	let line, uniforms;
 	let animationPaused = false;
 	let zoomSpeed = 2;
@@ -122,9 +122,6 @@
 		const container = document.getElementById('container');
 		container.appendChild(renderer.domElement);
 
-		stats = new Stats();
-		container.appendChild(stats.dom);
-
 		container.addEventListener('click', toggleAnimation);
 		window.addEventListener('resize', onWindowResize);
 		window.addEventListener('wheel', onMouseWheel);
@@ -149,10 +146,8 @@
 		if (!animationPaused) {
 			requestAnimationFrame(animate);
 			render();
-			stats.update();
 		} else {
 			requestAnimationFrame(animate);
-			stats.update();
 		}
 	}
 
@@ -172,6 +167,11 @@
 		attributes.displacement.needsUpdate = true;
 
 		renderer.render(scene, camera);
+	}
+
+	function notifyMe() {
+		// Handle the "Notify Me" button click event here
+		console.log("Notify Me button clicked");
 	}
 </script>
 </body>
