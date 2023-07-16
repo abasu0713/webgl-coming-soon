@@ -51,6 +51,7 @@
 	let renderer, scene, camera, stats;
 	let line, uniforms;
 	let animationPaused = false;
+	let zoomSpeed = 3;
 
 	const loader = new FontLoader();
 	loader.load('fonts/gentilis_bold.typeface.json', function (font) {
@@ -124,6 +125,7 @@
 
 		container.addEventListener('click', toggleAnimation);
 		window.addEventListener('resize', onWindowResize);
+		window.addEventListener('wheel', onMouseWheel);
 	}
 
 	function toggleAnimation() {
@@ -134,6 +136,11 @@
 		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
 		renderer.setSize(window.innerWidth, window.innerHeight);
+	}
+
+	function onMouseWheel(event) {
+		const delta = Math.sign(event.deltaY);
+		camera.position.z += delta * zoomSpeed;
 	}
 
 	function animate() {
