@@ -16,3 +16,8 @@ It will then display the `localhost:3000` url that you can navigate to and check
 To deploy using __Firebase__ follow this [Guide](https://firebase.google.com/docs/hosting)
 
 To deploy using __AWS S3 Bucket__ follow this [Guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
+
+To deploy using __Github Pages__ follow this [Guide](https://pages.github.com/)
+
+# Demo
+Live version of this site is deployed using __Github Pages__ [here](https://abasu0713.github.io/webgl-sample-coming-soon/)
